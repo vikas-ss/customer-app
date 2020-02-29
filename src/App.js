@@ -10,7 +10,7 @@ class App extends React.Component{
 
   handleClick = (e) => {
     this.setState({
-      name: 'Mohit SIngla',
+      name: 'Mohit Singla',
       age: 29
     });
     console.log(this.state);
@@ -24,7 +24,7 @@ class App extends React.Component{
   render(){
     return(
       <div>
-        <h1>Hello React</h1>
+        <h1>Hello ReactJS</h1>
         <p>My Name is {this.state.name} and I am {this.state.age}</p>
         <button onClick={this.handleClick}>Click Me</button>
         <button onMouseOver={this.handleMouseOver}>MouseOver Me</button>
