@@ -1,5 +1,6 @@
 import React from 'react';
 import Customer from './Customer';
+import UserList from './UserList';
 
 class App extends React.Component{
   state = {
@@ -31,8 +32,13 @@ class App extends React.Component{
     return(
       <div>
         <h1>Customer List</h1>
+
+        <UserList />
+
+        
         <ul>
         <Customer />
+        
         <li>{this.state.name}</li>
         </ul>
         {/*<button onClick={this.handleClick}>Click Me</button>
