@@ -1,14 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Customer from './Customer';
 
 class App extends React.Component{
   state = {
-    name: 'Harry Potter',
-    age: 30
+    name: 'Your Name Here'
   };
 
-  handleClick = (e) => {
+  /*handleClick = (e) => {
     this.setState({
       name: 'Mohit Singla',
       age: 29
@@ -20,15 +18,30 @@ class App extends React.Component{
   }
   handleCopy = (e) => {
     console.log("Do not try to steal.");
+  }*/
+  handleChange = (e) => {
+    this.setState({
+      name:e.target.value
+    });
+  }
+  handleSubmit = (e) => {
+    e.preventDefault();
   }
   render(){
     return(
       <div>
-        <h1>Hello ReactJS</h1>
-        <p>My Name is {this.state.name} and I am {this.state.age}</p>
-        <button onClick={this.handleClick}>Click Me</button>
+        <h1>Customer List</h1>
+        <ul>
+        <Customer />
+        <li>{this.state.name}</li>
+        </ul>
+        {/*<button onClick={this.handleClick}>Click Me</button>
         <button onMouseOver={this.handleMouseOver}>MouseOver Me</button>
-        <p onCopy={this.handleCopy}>What we think, we become.</p>
+        <p onCopy={this.handleCopy}>What we think, we become.</p>*/}
+        <form onSubmit={this.handleSubmit}>
+        <input type="text" onChange={this.handleChange} />
+        <button>Submit</button>
+        </form>
       </div>
     );
   }
