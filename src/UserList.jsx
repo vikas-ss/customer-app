@@ -1,10 +1,14 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table } from 'reactstrap';
+import { Alert } from 'reactstrap';
 
 
 class UserList extends React.Component {
     render(){
 		return(
+      <div>
+      <Alert color="success">Here is the Alert.</Alert>
 			<Table>
       <thead>
         <tr>
@@ -35,6 +39,7 @@ class UserList extends React.Component {
         </tr>
       </tbody>
     </Table>
+    </div>
 		);
 	}
 }
