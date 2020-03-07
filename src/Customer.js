@@ -1,14 +1,18 @@
 import React from 'react';
 
-class Customer extends React.Component{
-	render(){
-		const {name} = this.props;
-		return(
-			<div className="customer">
-			<li>{name}</li>
+const Customers = ({customers}) =>{
+	const customerList = customers.map(customer => {
+		return (
+			<div className="customer" key={customer.id}>
+				<li>{customer.name}</li>
 			</div>
-		);
-	}
+		)
+	})
+	return(
+		<div className="customerList">
+		{customerList}
+		</div>
+	);
 }
 
-export default Customer;
+export default Customers;
