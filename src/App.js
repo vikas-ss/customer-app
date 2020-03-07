@@ -1,25 +1,20 @@
 import React from 'react';
-import Customer from './Customer';
-import UserList from './UserList';
+import {BrowserRouter, Route} from 'react-router-dom';
+import Home from './components/Home';
+import About from './components/About';
+import Contact from './components/Contact';
+import Navbar from './components/Navbar';
 
 class App extends React.Component{
-  state = {
-    customers : [
-      { name: 'Harry Potter', id:1 },
-      { name: 'Ron Weasley', id:2 },
-      { name: 'Hermione Granger', id:3 }
-    ]
-  };
   render(){
     return(
       <div>
-        <h1>Customer List</h1>
-
-        <UserList />
-
-        <ul>
-        <Customer customers = {this.state.customers} />
-        </ul>
+      <BrowserRouter>
+      <Navbar />
+      <Route path="/home" component={Home} />
+      <Route path="/about" component={About} />
+      <Route path="/contact" component={Contact} />
+      </BrowserRouter>
       </div>
     );
   }
