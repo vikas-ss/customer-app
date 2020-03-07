@@ -35,11 +35,11 @@ class App extends React.Component{
 
         <UserList />
 
-        
         <ul>
-        <Customer />
-        
-        <li>{this.state.name}</li>
+        <Customer name="Harry Potter" />
+        <Customer name="Ron Weasley" />
+        <Customer name="Hermione Granger" />
+        <Customer name={this.state.name} />
         </ul>
         {/*<button onClick={this.handleClick}>Click Me</button>
         <button onMouseOver={this.handleMouseOver}>MouseOver Me</button>

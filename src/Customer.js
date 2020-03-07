@@ -2,11 +2,10 @@ import React from 'react';
 
 class Customer extends React.Component{
 	render(){
+		const {name} = this.props;
 		return(
 			<div className="customer">
-			<li>Harry Potter</li>
-			<li>Ron Weasley</li>
-			<li>Hermione Granger</li>
+			<li>{name}</li>
 			</div>
 		);
 	}
