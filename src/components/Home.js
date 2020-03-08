@@ -1,25 +1,53 @@
 import React from 'react';
-import Customer from './../Customer';
-import UserList from './../UserList';
+import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Table } from 'reactstrap';
 
 
 class Home extends React.Component{
 	state = {
-	    customers : [
-	      { name: 'Harry Potter', id:1 },
-	      { name: 'Ron Weasley', id:2 },
-	      { name: 'Hermione Granger', id:3 }
-	    ]
-	  };
+	 	users : []
+	 };
+	componentDidMount(){
+		axios.get('https://5e5a28566a71ea0014e61c34.mockapi.io/api/v1/users')
+		.then(res => {
+			this.setState({
+				users : res.data.slice(0,10)
+			});
+		})
+	}
 	render(){
+		const {users} = this.state;
+		const userList = users.length ? (
+			users.map(user => {
+				return (
+					<tr key={user.id}>
+			          <td>{user.id}</td>
+			          <td>{user.name}</td>
+			          <td>{user.email}</td>
+			        </tr>
+				)
+			})
+		) : (
+			<tr>
+			    <td colSpan='3'>No users found</td>
+			</tr>
+		); 
 		return (
 			<div className="container">
-				<h4 className="center">Home</h4>
-				<p>This is Home Page.</p>
-				<UserList />
-          		<ul>
-          			<Customer customers = {this.state.customers} />
-          		</ul>
+				<h3>Hogwarts Professors List</h3>
+          		<Table responsive>
+			      <thead>
+			        <tr>
+			          <th>#</th>
+			          <th>Name</th>
+			          <th>Email</th>
+			        </tr>
+			      </thead>
+			      <tbody>
+			      {userList}
+			      </tbody>
+    			</Table>
 			</div>
 		)
 	}

@@ -8,7 +8,7 @@ class UserList extends React.Component {
     render(){
 		return(
       <div>
-      <Alert color="success">Here is the Alert.</Alert>
+      <h4>Customer List</h4>
 			<Table>
       <thead>
         <tr>

@@ -8,14 +8,14 @@ import Navbar from './components/Navbar';
 class App extends React.Component{
   render(){
     return(
-      <div>
       <BrowserRouter>
-      <Navbar />
-      <Route path="/home" component={Home} />
+      <div className="App">
+        <Navbar />
+      </div>
+      <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
       </BrowserRouter>
-      </div>
     );
   }
 }
