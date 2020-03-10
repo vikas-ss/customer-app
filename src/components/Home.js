@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 
 class Home extends React.Component{
@@ -23,7 +24,7 @@ class Home extends React.Component{
 				return (
 					<tr key={user.id}>
 			          <td>{user.id}</td>
-			          <td>{user.name}</td>
+			          <td><Link to = {'/' + user.id}>{user.name}</Link></td>
 			          <td>{user.email}</td>
 			        </tr>
 				)
