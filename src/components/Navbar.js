@@ -7,13 +7,13 @@ const Navbar = () => {
 		<div>
 	       	<Nav>
 		        <NavItem>
-		          <NavLink to="/" tag={Link}>Home</NavLink>
+		          <NavLink to="/" tag={Link}>Axios</NavLink>
 		        </NavItem>
 		        <NavItem>
-		          <NavLink to="/about" tag={Link}>About</NavLink>
+		          <NavLink to="/template" tag={Link}>Template</NavLink>
 		        </NavItem>
 		        <NavItem>
-		          <NavLink to="/contact" tag={Link}>Contact</NavLink>
+		          <NavLink to="/store" tag={Link}>Redux Store</NavLink>
 		        </NavItem>
 		    </Nav>
 		</div>

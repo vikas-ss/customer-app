@@ -1,24 +1,13 @@
 import React from 'react';
-import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 
-class Home extends React.Component{
-	state = {
-	 	users : []
-	 };
-	componentDidMount(){
-		axios.get('https://5e5a28566a71ea0014e61c34.mockapi.io/api/v1/users')
-		.then(res => {
-			this.setState({
-				users : res.data.slice(0,10)
-			});
-		})
-	}
+class Store extends React.Component{
 	render(){
-		const {users} = this.state;
+		const {users} = this.props;
 		const userList = users.length ? (
 			users.map(user => {
 				return (
@@ -36,7 +25,7 @@ class Home extends React.Component{
 		); 
 		return (
 			<div className="container">
-				<h3>Hogwarts Professors List</h3>
+				<h3>Records fetched from Redux Store</h3>
           		<Table responsive>
 			      <thead>
 			        <tr>
@@ -54,4 +43,10 @@ class Home extends React.Component{
 	}
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+	return {
+		users: state.users
+	}	
+}
+
+export default connect(mapStateToProps)(Store);
