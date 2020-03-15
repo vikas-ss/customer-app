@@ -1,7 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from 'reactstrap';
 
 class UserDetail extends React.Component{
+	handleClick = () => {
+		this.props.deletePost(this.props.user.id);
+		this.props.history.push('/store');
+	}
 	render(){
 		const user = this.props.user ? (
 			<div className="user">
@@ -17,6 +23,9 @@ class UserDetail extends React.Component{
 				<h4>User Details:</h4>
 				<br/>
 				<h4>{user}</h4>
+				<div className="center">
+					<Button className="btn btn-info" onClick={this.handleClick}>Delete</Button>
+				</div>
 			</div>
 		)
 	}
@@ -29,4 +38,12 @@ const mapStateToProps = (state, ownProps) => {
 	}
 }
 
-export default connect(mapStateToProps)(UserDetail);
+const mapDispatchToProps = (dispatch) => {
+	return {
+		deletePost: (id) => { 
+			dispatch({type: 'DELETE_USER', id: id}) 
+		}
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserDetail);

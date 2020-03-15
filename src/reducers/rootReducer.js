@@ -7,6 +7,15 @@ const initsate = {
 }
 
 const rootReducer = (state = initsate, action) => {
+	if(action.type === "DELETE_USER"){
+		let newUsers = state.users.filter(user => {
+			return action.id !== user.id;
+		});
+		return {
+			...state,
+			users: newUsers
+		}
+	}
 	return state;
 }
 
