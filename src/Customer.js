@@ -7,6 +7,7 @@ class Customer extends React.Component{
 			<li>Harry Potter</li>
 			<li>Ron Weasley</li>
 			<li>Hermione Granger</li>
+			<li>Peter</li>
 			</div>
 		);
 	}
